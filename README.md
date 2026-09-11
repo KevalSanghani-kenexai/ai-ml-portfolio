@@ -48,7 +48,7 @@ Update social / resume links in `src/lib/constants.ts` (currently `[ADD LINK]` p
 Copy `.env.example` to `.env.local` and optionally set:
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://keval-ai.netlify.app
+NEXT_PUBLIC_SITE_URL=https://your-site.netlify.app
 RESEND_API_KEY=...
 RESEND_FROM_EMAIL=Portfolio <you@domain.com>
 ```
@@ -65,14 +65,17 @@ npm run lint
 
 ## Deployment
 
-Hosted on Netlify at [https://keval-ai.netlify.app](https://keval-ai.netlify.app).
-
-Connect the GitHub repository and deploy with:
+Hosted on Netlify. Connect the GitHub repository and deploy with:
 
 - **Build command:** `npm run build`
 - **Node version:** `22` (via `.nvmrc` / `netlify.toml`)
-- **Publish directory:** leave default (Netlify Next.js Runtime handles output)
+- **Publish directory:** leave blank (Netlify Next.js Runtime handles output)
 
-Set `NEXT_PUBLIC_SITE_URL=https://keval-ai.netlify.app` in Netlify environment variables. Optionally add `RESEND_API_KEY` and `RESEND_FROM_EMAIL` for contact form email delivery.
+In Netlify environment variables set:
+
+- `NEXT_PUBLIC_SITE_URL` — your production URL (e.g. `https://keval-ai.netlify.app`)
+- Optionally `RESEND_API_KEY` and `RESEND_FROM_EMAIL` for contact form email delivery
+
+Also ensure **Publish directory** is empty in Build settings. Do not set it to `.next`, `out`, or `public`.
 
 Pushes to `main` trigger automatic production deploys.

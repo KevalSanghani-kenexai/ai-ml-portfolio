@@ -3,3 +3,8 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  # Public site URL is not a secret; omit so Secrets Scanner does not fail the build
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_SITE_URL"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
