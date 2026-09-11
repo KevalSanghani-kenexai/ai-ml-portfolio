@@ -69,13 +69,13 @@ Hosted on Netlify. Connect the GitHub repository and deploy with:
 
 - **Build command:** `npm run build`
 - **Node version:** `22` (via `.nvmrc` / `netlify.toml`)
-- **Publish directory:** leave blank (Netlify Next.js Runtime handles output)
+- **Publish directory:** `.next` (set in `netlify.toml`; required by the Next.js Runtime)
 
 In Netlify environment variables set:
 
 - `NEXT_PUBLIC_SITE_URL` — your production URL (e.g. `https://keval-ai.netlify.app`)
 - Optionally `RESEND_API_KEY` and `RESEND_FROM_EMAIL` for contact form email delivery
 
-Also ensure **Publish directory** is empty in Build settings. Do not set it to `.next`, `out`, or `public`.
+Also ensure **Publish directory** is `.next` in Build settings (or leave the UI blank so `netlify.toml` wins). Do not set it to the site root, `out`, or `public`.
 
 Pushes to `main` trigger automatic production deploys.
