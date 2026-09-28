@@ -32,8 +32,8 @@ export function ContactCTA() {
                 LinkedIn
                 <ArrowUpRight size={14} />
               </MagneticLink>
-              <MagneticLink href={LINKS.upwork} variant="secondary" external>
-                Upwork
+              <MagneticLink href={LINKS.resume} variant="secondary" external>
+                Resume
                 <ArrowUpRight size={14} />
               </MagneticLink>
               <MagneticLink href="/contact" variant="ghost">

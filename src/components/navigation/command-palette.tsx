@@ -56,18 +56,6 @@ export function CommandPalette() {
       },
     ];
 
-    if (!isPlaceholderLink(LINKS.github)) {
-      items.push({
-        id: "github",
-        label: "GitHub",
-        hint: "external",
-        action: () => {
-          window.open(LINKS.github, "_blank", "noopener,noreferrer");
-          close();
-        },
-      });
-    }
-
     if (!isPlaceholderLink(LINKS.linkedin)) {
       items.push({
         id: "linkedin",

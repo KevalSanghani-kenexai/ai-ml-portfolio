@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
 import { SITE, LINKS } from "@/lib/constants";
-import { githubStats } from "@/data/github";
 import { Container, MetaLabel, SectionHeading } from "@/components/ui/section";
 import { MagneticLink } from "@/components/ui/magnetic-link";
 import { FadeIn } from "@/components/animations/fade-in";
@@ -94,8 +93,13 @@ export default function AboutPage() {
                   Email
                   <ArrowUpRight size={14} />
                 </MagneticLink>
-                <MagneticLink href={LINKS.github} variant="ghost" external>
-                  GitHub · {githubStats.username}
+                <MagneticLink href={LINKS.linkedin} variant="secondary" external>
+                  LinkedIn
+                  <ArrowUpRight size={14} />
+                </MagneticLink>
+                <MagneticLink href={LINKS.resume} variant="ghost" external>
+                  Resume
+                  <ArrowUpRight size={14} />
                 </MagneticLink>
               </div>
             </aside>

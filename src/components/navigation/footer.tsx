@@ -44,11 +44,8 @@ export function Footer() {
               <MagneticLink href={LINKS.linkedin} external>
                 LinkedIn
               </MagneticLink>
-              <MagneticLink href={LINKS.github} external>
-                GitHub
-              </MagneticLink>
-              <MagneticLink href={LINKS.upwork} external>
-                Upwork
+              <MagneticLink href={LINKS.resume} external>
+                Resume
               </MagneticLink>
             </div>
           </div>

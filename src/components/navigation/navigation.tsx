@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { LINKS, NAV_ITEMS, SITE } from "@/lib/constants";
-import { cn, isPlaceholderLink } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { useCursor } from "@/hooks/use-cursor";
 import { MagneticLink } from "@/components/ui/magnetic-link";
 
@@ -87,36 +87,24 @@ export function Navigation() {
         </nav>
 
         <div className="hidden items-center gap-5 lg:flex">
-          {!isPlaceholderLink(LINKS.resume) ? (
-            <MagneticLink
-              href={LINKS.resume}
-              variant="ghost"
-              external
-              onMouseEnter={() => setCursor("open", "OPEN")}
-              onMouseLeave={resetCursor}
-            >
-              Resume
-            </MagneticLink>
-          ) : (
-            <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted/50">
-              Resume
-            </span>
-          )}
-          {!isPlaceholderLink(LINKS.github) ? (
-            <MagneticLink
-              href={LINKS.github}
-              variant="ghost"
-              external
-              onMouseEnter={() => setCursor("open", "OPEN")}
-              onMouseLeave={resetCursor}
-            >
-              GitHub
-            </MagneticLink>
-          ) : (
-            <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted/50">
-              GitHub
-            </span>
-          )}
+          <MagneticLink
+            href={LINKS.resume}
+            variant="ghost"
+            external
+            onMouseEnter={() => setCursor("open", "OPEN")}
+            onMouseLeave={resetCursor}
+          >
+            Resume
+          </MagneticLink>
+          <MagneticLink
+            href={LINKS.linkedin}
+            variant="ghost"
+            external
+            onMouseEnter={() => setCursor("open", "OPEN")}
+            onMouseLeave={resetCursor}
+          >
+            LinkedIn
+          </MagneticLink>
           <button
             type="button"
             className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted transition-colors hover:text-foreground"

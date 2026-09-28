@@ -20,12 +20,9 @@ export const SITE = {
     "AI/ML Engineer building production-ready Generative AI, RAG, LLM applications, AI agents and intelligent automation systems.",
 } as const;
 
-// EDIT THESE LINKS WHEN READY
 export const LINKS = {
-  linkedin: "[ADD LINK]",
-  github: "[ADD LINK]",
-  upwork: "[ADD LINK]",
-  resume: "[ADD LINK]",
+  linkedin: "https://www.linkedin.com/in/keval-sanghani-186474299",
+  resume: "/resume.pdf",
   email: `mailto:${SITE.email}`,
 } as const;
 

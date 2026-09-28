@@ -66,8 +66,8 @@ export function ContactForm() {
           <MagneticLink href={LINKS.linkedin} variant="secondary" external>
             LinkedIn
           </MagneticLink>
-          <MagneticLink href={LINKS.upwork} variant="secondary" external>
-            Upwork
+          <MagneticLink href={LINKS.resume} variant="secondary" external>
+            Resume
           </MagneticLink>
         </div>
         <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
