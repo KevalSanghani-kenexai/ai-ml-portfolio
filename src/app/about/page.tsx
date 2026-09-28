@@ -4,6 +4,7 @@ import { SITE, LINKS } from "@/lib/constants";
 import { Container, MetaLabel, SectionHeading } from "@/components/ui/section";
 import { MagneticLink } from "@/components/ui/magnetic-link";
 import { FadeIn } from "@/components/animations/fade-in";
+import { Achievements } from "@/components/about/achievements";
 import { ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
@@ -105,6 +106,8 @@ export default function AboutPage() {
             </aside>
           </FadeIn>
         </div>
+
+        <Achievements />
       </Container>
     </div>
   );

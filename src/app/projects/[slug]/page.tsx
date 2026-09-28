@@ -70,7 +70,7 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
               title: project.title,
               description: project.shortDescription,
               url: absoluteUrl(`/projects/${project.slug}`),
-              datePublished: project.year,
+              datePublished: /^\d{4}$/.test(project.year) ? project.year : undefined,
             }),
           ),
         }}
@@ -114,25 +114,22 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
                     {project.technologies.join(" · ")}
                   </p>
                 </div>
-                <div className="flex flex-wrap gap-3 pt-2">
-                  {project.demo ? (
-                    <MagneticLink href={project.demo} variant="secondary" external>
-                      Demo
-                      <ArrowUpRight size={14} />
-                    </MagneticLink>
-                  ) : null}
-                  {project.github ? (
-                    <MagneticLink href={project.github} variant="secondary" external>
-                      GitHub
-                      <ArrowUpRight size={14} />
-                    </MagneticLink>
-                  ) : null}
-                  {!project.demo && !project.github ? (
-                    <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
-                      Demo / GitHub links pending
-                    </p>
-                  ) : null}
-                </div>
+                {project.demo || project.github ? (
+                  <div className="flex flex-wrap gap-3 pt-2">
+                    {project.demo ? (
+                      <MagneticLink href={project.demo} variant="secondary" external>
+                        Demo
+                        <ArrowUpRight size={14} />
+                      </MagneticLink>
+                    ) : null}
+                    {project.github ? (
+                      <MagneticLink href={project.github} variant="secondary" external>
+                        GitHub
+                        <ArrowUpRight size={14} />
+                      </MagneticLink>
+                    ) : null}
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>
@@ -188,25 +185,29 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
           </ul>
         </CaseBlock>
 
-        <CaseBlock title="Challenges">
-          <ul className="space-y-4">
-            {project.challenges.map((item) => (
-              <li key={item} className="text-muted">
-                {item}
-              </li>
-            ))}
-          </ul>
-        </CaseBlock>
+        {project.challenges.length > 0 ? (
+          <CaseBlock title="Challenges">
+            <ul className="space-y-4">
+              {project.challenges.map((item) => (
+                <li key={item} className="text-muted">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </CaseBlock>
+        ) : null}
 
-        <CaseBlock title="Results">
-          <ul className="space-y-4">
-            {project.results.map((item) => (
-              <li key={item} className="text-muted">
-                {item}
-              </li>
-            ))}
-          </ul>
-        </CaseBlock>
+        {project.results.length > 0 ? (
+          <CaseBlock title="Results">
+            <ul className="space-y-4">
+              {project.results.map((item) => (
+                <li key={item} className="text-muted">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </CaseBlock>
+        ) : null}
 
         {project.metrics.length > 0 ? (
           <CaseBlock title="Metrics">
@@ -223,8 +224,8 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
           </CaseBlock>
         ) : null}
 
-        <CaseBlock title="Screenshots">
-          {project.images.length > 0 ? (
+        {project.images.length > 0 ? (
+          <CaseBlock title="Screenshots">
             <div className="grid gap-4">
               {project.images.map((image) => (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -236,22 +237,20 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
                 />
               ))}
             </div>
-          ) : (
-            <div className="flex min-h-40 items-center justify-center border border-dashed border-border font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
-              Screenshot placeholders — add assets later
-            </div>
-          )}
-        </CaseBlock>
+          </CaseBlock>
+        ) : null}
 
-        <CaseBlock title="Lessons learned">
-          <ul className="space-y-4">
-            {project.lessons.map((item) => (
-              <li key={item} className="text-muted">
-                {item}
-              </li>
-            ))}
-          </ul>
-        </CaseBlock>
+        {project.lessons.length > 0 ? (
+          <CaseBlock title="Lessons learned">
+            <ul className="space-y-4">
+              {project.lessons.map((item) => (
+                <li key={item} className="text-muted">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </CaseBlock>
+        ) : null}
 
         {next ? (
           <div className="border-b border-border py-12 md:py-16">

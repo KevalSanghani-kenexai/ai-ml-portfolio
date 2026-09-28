@@ -65,6 +65,13 @@ export type ExperienceItem = {
   isPlaceholder?: boolean;
 };
 
+export type Achievement = {
+  id: string;
+  title: string;
+  issuer: string;
+  description: string;
+};
+
 export type WritingPost = {
   slug: string;
   title: string;

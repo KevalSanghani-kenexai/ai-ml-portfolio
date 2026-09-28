@@ -3,6 +3,7 @@ import { buildMetadata } from "@/lib/seo";
 import { experience } from "@/data/experience";
 import { Container, MetaLabel, SectionHeading } from "@/components/ui/section";
 import { FadeIn } from "@/components/animations/fade-in";
+import { Achievements } from "@/components/about/achievements";
 
 export const metadata: Metadata = buildMetadata({
   title: "Experience",
@@ -61,11 +62,7 @@ export default function ExperiencePage() {
           ))}
         </div>
 
-        {experience.some((item) => item.isPlaceholder) ? (
-          <p className="mt-12 font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
-            Earlier roles available as placeholders in src/data/experience.ts
-          </p>
-        ) : null}
+        <Achievements />
       </Container>
     </div>
   );
