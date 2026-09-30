@@ -6,7 +6,7 @@ import type { Project } from "@/types";
 import { Container, MetaLabel, SectionHeading } from "@/components/ui/section";
 import { FadeIn } from "@/components/animations/fade-in";
 import { useCursor } from "@/hooks/use-cursor";
-import { PipelineDiagram } from "@/components/projects/pipeline-diagram";
+import { ArchitectureMap } from "@/components/projects/architecture-map";
 import { cn } from "@/lib/utils";
 
 export function SelectedWork({ projects }: { projects: Project[] }) {
@@ -15,23 +15,11 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
   return (
     <section id="work" className="border-b border-border py-[var(--section-pad)]">
       <Container>
-        <div className="mb-12 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between">
-          <SectionHeading
-            className="mb-0"
-            eyebrow="Selected Work"
-            title="Selected Work"
-            description="Production-oriented AI systems, experiments and engineering projects."
-          />
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted transition-colors hover:text-accent"
-            onMouseEnter={() => setCursor("view", "VIEW")}
-            onMouseLeave={resetCursor}
-          >
-            View all
-            <ArrowUpRight size={14} />
-          </Link>
-        </div>
+        <SectionHeading
+          eyebrow="Selected Work"
+          title="Selected Work"
+          description="Production-oriented AI systems, experiments and engineering projects."
+        />
 
         <div className="divide-y divide-border border-y border-border">
           {projects.map((project, index) => (
@@ -61,8 +49,8 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
                       <p className="mt-2 text-sm">{project.category}</p>
                     </div>
                     <div>
-                      <MetaLabel>Year</MetaLabel>
-                      <p className="mt-2 text-sm">{project.year}</p>
+                      <MetaLabel>Role</MetaLabel>
+                      <p className="mt-2 text-sm">{project.role}</p>
                     </div>
                     <div className="col-span-2">
                       <MetaLabel>Tech</MetaLabel>
@@ -85,11 +73,23 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
                     "relative min-h-48 overflow-hidden border border-white/10 bg-white/[0.03] p-4 backdrop-blur-md transition-colors duration-300 group-hover:border-accent/35 group-hover:bg-white/[0.05]",
                   )}
                 >
-                  <PipelineDiagram steps={project.architecture} compact />
+                  <ArchitectureMap stages={project.architecture} metrics={project.metrics} />
                 </div>
               </Link>
             </FadeIn>
           ))}
+        </div>
+
+        <div className="mt-10 flex justify-end">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted transition-colors hover:text-accent"
+            onMouseEnter={() => setCursor("view", "VIEW")}
+            onMouseLeave={resetCursor}
+          >
+            View all projects
+            <ArrowUpRight size={14} />
+          </Link>
         </div>
       </Container>
     </section>

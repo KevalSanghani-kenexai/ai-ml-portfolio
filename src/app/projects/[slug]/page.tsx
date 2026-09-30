@@ -10,7 +10,7 @@ import {
 import { buildMetadata, creativeWorkJsonLd } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
 import { Container, MetaLabel } from "@/components/ui/section";
-import { PipelineDiagram } from "@/components/projects/pipeline-diagram";
+import { ArchitectureMap } from "@/components/projects/architecture-map";
 import { MagneticLink } from "@/components/ui/magnetic-link";
 import { FadeIn } from "@/components/animations/fade-in";
 
@@ -70,7 +70,6 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
               title: project.title,
               description: project.shortDescription,
               url: absoluteUrl(`/projects/${project.slug}`),
-              datePublished: /^\d{4}$/.test(project.year) ? project.year : undefined,
             }),
           ),
         }}
@@ -93,7 +92,6 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
                   {project.number}
                 </span>
                 <MetaLabel>{project.category}</MetaLabel>
-                <MetaLabel>{project.year}</MetaLabel>
               </div>
               <h1 className="mt-5 text-4xl font-medium tracking-tight md:text-6xl">
                 {project.title}
@@ -135,8 +133,8 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
           </div>
         </FadeIn>
 
-        <div className="mt-12 min-h-64 border border-border bg-surface p-6 md:p-10">
-          <PipelineDiagram steps={project.architecture} />
+        <div className="mt-12 border border-border bg-surface p-6 md:p-10">
+          <ArchitectureMap stages={project.architecture} layout="flow" />
         </div>
 
         <CaseBlock title="What problem existed?">
@@ -153,13 +151,6 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
 
         <CaseBlock title="What did I build?">
           <p>{project.solution}</p>
-        </CaseBlock>
-
-        <CaseBlock title="Why this architecture?">
-          <p className="mb-6 text-muted">
-            The pipeline below reflects the system flow designed for this problem.
-          </p>
-          <PipelineDiagram steps={project.architecture} />
         </CaseBlock>
 
         <CaseBlock title="Technology">

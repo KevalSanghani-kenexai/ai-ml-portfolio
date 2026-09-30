@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { getVisibleProjects } from "@/data/projects";
 import { Container, MetaLabel, SectionHeading } from "@/components/ui/section";
-import { PipelineDiagram } from "@/components/projects/pipeline-diagram";
+import { ArchitectureMap } from "@/components/projects/architecture-map";
 import { FadeIn } from "@/components/animations/fade-in";
 
 export const metadata: Metadata = buildMetadata({
@@ -36,12 +36,9 @@ export default function ProjectsPage() {
                 className="group grid gap-8 py-12 md:grid-cols-[1fr_1.3fr] md:py-16"
               >
                 <div>
-                  <div className="flex items-center gap-4">
-                    <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-muted">
-                      {project.number}
-                    </p>
-                    <MetaLabel>{project.year}</MetaLabel>
-                  </div>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-muted">
+                    {project.number}
+                  </p>
                   <h2 className="mt-5 text-3xl font-medium tracking-tight transition-transform duration-300 group-hover:translate-x-1 md:text-4xl">
                     {project.title}
                   </h2>
@@ -67,7 +64,7 @@ export default function ProjectsPage() {
                   </span>
                 </div>
                 <div className="min-h-56 border border-border bg-surface p-5 transition-colors group-hover:border-accent/40 md:p-8">
-                  <PipelineDiagram steps={project.architecture} />
+                  <ArchitectureMap stages={project.architecture} metrics={project.metrics} />
                 </div>
               </Link>
             </Container>

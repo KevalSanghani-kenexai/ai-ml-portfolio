@@ -8,6 +8,11 @@ export type ProjectImage = {
   alt: string;
 };
 
+export type ArchitectureStage = {
+  stage: string;
+  nodes: string[];
+};
+
 export type Project = {
   slug: string;
   number: string;
@@ -15,7 +20,6 @@ export type Project = {
   shortDescription: string;
   description: string;
   category: string;
-  year: string;
   featured: boolean;
   caseStudy: boolean;
   role: string;
@@ -24,7 +28,7 @@ export type Project = {
   context: string;
   businessUseCase: string;
   solution: string;
-  architecture: string[];
+  architecture: ArchitectureStage[];
   implementation: string[];
   challenges: string[];
   results: string[];
@@ -70,18 +74,6 @@ export type Achievement = {
   title: string;
   issuer: string;
   description: string;
-};
-
-export type WritingPost = {
-  slug: string;
-  title: string;
-  excerpt: string;
-  category: string;
-  date: string;
-  readTime: string;
-  featured: boolean;
-  isPlaceholder?: boolean;
-  content: string[];
 };
 
 export type ProcessStep = {

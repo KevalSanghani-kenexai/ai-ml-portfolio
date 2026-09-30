@@ -13,7 +13,6 @@ export const projects: Project[] = [
     description:
       "An agentic contract analysis platform on Azure that routes requests through a multi-agent LangGraph architecture, answers questions over contracts with a production RAG pipeline, compares provisions against YAML-driven catalogs, and scores clauses against company-standard positions.",
     category: "AI Agents & RAG",
-    year: "2024 – Present",
     featured: true,
     caseStudy: true,
     role: "AI/ML Engineer · KenexAi",
@@ -37,14 +36,10 @@ export const projects: Project[] = [
     solution:
       "Designed a multi-agent LangGraph architecture with an LLM-based intent router that uses structured Pydantic outputs to classify requests into 7 intents and detect prompt-injection and jailbreak attempts. Behind it sit a production RAG pipeline on Azure AI Document Intelligence, Azure OpenAI embeddings and Azure AI Search, YAML-driven extraction and comparison catalogs, and an LLM-powered gap analysis engine, deployed as a FastAPI service on Azure App Service.",
     architecture: [
-      "Contract Upload",
-      "Document Intelligence",
-      "Azure OpenAI Embeddings",
-      "Azure AI Search",
-      "LangGraph Intent Router",
-      "Specialist Agents",
-      "Gap Analysis",
-      "Cited Answers",
+      { stage: "Ingest", nodes: ["Contract Upload", "Azure Document Intelligence"] },
+      { stage: "Index", nodes: ["Azure OpenAI Embeddings", "Azure AI Search · HNSW + Rerank"] },
+      { stage: "Reason", nodes: ["LangGraph Intent Router", "Specialist Agents", "Gap Analysis"] },
+      { stage: "Deliver", nodes: ["Cited Answers", "Risk Scores", "Executive Summary"] },
     ],
     implementation: [
       "Designed a multi-agent LangGraph architecture with an LLM-based intent router (structured Pydantic outputs) that classifies requests into 7 intents and detects prompt-injection/jailbreak attempts.",
@@ -84,7 +79,6 @@ export const projects: Project[] = [
     description:
       "An end-to-end voice AI interviewer built on Pipecat that conducts spoken mock interviews, tailors questions to the company, role and job description through RAG, and streams low-latency audio between the browser and the bot over WebRTC.",
     category: "Voice AI & RAG",
-    year: "2024 – Present",
     featured: true,
     caseStudy: true,
     role: "AI/ML Engineer · KenexAi",
@@ -110,14 +104,10 @@ export const projects: Project[] = [
     solution:
       "Built an end-to-end voice AI interviewer on Pipecat with a streaming pipeline of Deepgram STT, OpenAI GPT-4o-mini, and Cartesia TTS. Questions are generated with RAG over job descriptions embedded in Qdrant, audio flows over WebRTC, turn-taking is tuned with Silero VAD and a local Smart Turn v3 model, and a FastAPI backend manages interview lifecycles for a React + TypeScript frontend.",
     architecture: [
-      "Browser (React)",
-      "WebRTC Audio",
-      "Silero VAD + Smart Turn",
-      "Deepgram STT",
-      "GPT-4o-mini",
-      "Qdrant RAG",
-      "Cartesia TTS",
-      "Live Transcript",
+      { stage: "Capture", nodes: ["Browser (React)", "WebRTC Audio"] },
+      { stage: "Listen", nodes: ["Silero VAD + Smart Turn", "Deepgram STT"] },
+      { stage: "Think", nodes: ["GPT-4o-mini", "Qdrant RAG · Job Descriptions"] },
+      { stage: "Respond", nodes: ["Cartesia TTS", "Live Transcript"] },
     ],
     implementation: [
       "Built an end-to-end voice AI interviewer on Pipecat with a streaming pipeline of Deepgram STT, OpenAI GPT-4o-mini, and Cartesia TTS for natural, spoken mock interviews.",
@@ -154,7 +144,6 @@ export const projects: Project[] = [
     description:
       "A hybrid Text-to-SQL and RAG system on AWS that answers natural-language questions across a drug-related dataset of 102 structured tables in RDS and unstructured documents in S3, showing where every answer came from.",
     category: "Text-to-SQL & RAG",
-    year: "2024 – Present",
     featured: true,
     caseStudy: true,
     role: "AI/ML Engineer · KenexAi",
@@ -176,14 +165,10 @@ export const projects: Project[] = [
     solution:
       "Built a hybrid pipeline that uses LangChain to convert natural language into SQL with LLM-based reranking, AWS OpenSearch as the vector store for schema and document embeddings, and LlamaIndex-based RAG for contextual retrieval over S3 documents, deployed within the AWS ecosystem.",
     architecture: [
-      "User Question",
-      "LangChain Text-to-SQL",
-      "AWS RDS",
-      "OpenSearch Vectors",
-      "LlamaIndex RAG",
-      "AWS S3 Documents",
-      "AWS Bedrock",
-      "Answer + References",
+      { stage: "Ask", nodes: ["Natural-Language Question"] },
+      { stage: "SQL Path", nodes: ["LangChain Text-to-SQL", "LLM Reranking", "AWS RDS · 102 Tables"] },
+      { stage: "Document Path", nodes: ["OpenSearch Vectors", "LlamaIndex RAG", "AWS S3 Documents"] },
+      { stage: "Explain", nodes: ["Answer", "Schema References", "Document + Page"] },
     ],
     implementation: [
       "Built a hybrid Text-to-SQL and RAG pipeline over a drug-related dataset of 102 structured tables (AWS RDS) and unstructured documents (AWS S3).",
@@ -218,7 +203,6 @@ export const projects: Project[] = [
     description:
       "An end-to-end semantic email classification system that recommends the five most relevant folders for each incoming email using vector similarity search over historical email metadata, while respecting user access controls.",
     category: "Vector Search",
-    year: "2024 – Present",
     featured: false,
     caseStudy: true,
     role: "AI/ML Engineer · KenexAi",
@@ -244,13 +228,11 @@ export const projects: Project[] = [
     solution:
       "Embedded email subject, body, CC and metadata into vectors stored in Qdrant for low-latency similarity search, designed ACL-aware retrieval logic, and benchmarked Qdrant, Milvus, FAISS, Pinecone and pgvector with HNSW and IVF indexing to optimize for latency, recall and scalability.",
     architecture: [
-      "Incoming Email",
-      "Sentence Transformers",
-      "Email Embeddings",
-      "Qdrant (HNSW)",
-      "ACL Filter",
-      "Similarity Search",
-      "Top-5 Folders",
+      { stage: "Input", nodes: ["Incoming Email", "Subject · Body · CC · Metadata"] },
+      { stage: "Embed", nodes: ["Sentence Transformers"] },
+      { stage: "Search", nodes: ["Qdrant · HNSW", "Similarity Search"] },
+      { stage: "Secure", nodes: ["ACL Filter"] },
+      { stage: "Recommend", nodes: ["Top-5 Folders"] },
     ],
     implementation: [
       "Built an end-to-end semantic email classification system that recommends the top-5 most relevant folders for incoming emails using vector similarity search over historical email metadata.",
@@ -287,7 +269,6 @@ export const projects: Project[] = [
     description:
       "A live AI-powered legal assistant that lets users query legal content conversationally and generates legal documents automatically. I contributed the RAG pipeline, ingestion workflows and vector storage.",
     category: "RAG / Legal AI",
-    year: "2024",
     featured: false,
     caseStudy: true,
     role: "Machine Learning Intern · Fxis AI",
@@ -301,13 +282,10 @@ export const projects: Project[] = [
     solution:
       "Designed and implemented a RAG pipeline to retrieve relevant legal content from embedded documents, built ingestion workflows that chunk files, generate embeddings and store vectors in Qdrant, and used Docker-based services for vector storage, retrieval and deployment.",
     architecture: [
-      "Legal Documents",
-      "Chunking",
-      "Embeddings",
-      "Qdrant",
-      "Retrieval",
-      "LLM",
-      "Answer / Document",
+      { stage: "Ingest", nodes: ["Legal Documents", "Chunking", "Embeddings"] },
+      { stage: "Store", nodes: ["Qdrant · Docker"] },
+      { stage: "Retrieve", nodes: ["Semantic Retrieval"] },
+      { stage: "Generate", nodes: ["LLM", "Legal Answer", "Generated Document"] },
     ],
     implementation: [
       "Contributed to a live AI-powered legal assistant enabling conversational querying and automated legal document generation.",

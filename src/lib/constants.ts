@@ -30,7 +30,6 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Work", href: "/projects" },
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
-  { label: "Writing", href: "/writing" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -41,7 +40,6 @@ export const HOME_SECTIONS = [
   { id: "work", label: "Work" },
   { id: "services", label: "Services" },
   { id: "process", label: "Process" },
-  { id: "writing", label: "Writing" },
   { id: "contact", label: "Contact" },
 ] as const;
 

@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/utils";
 import { getVisibleProjects } from "@/data/projects";
-import { writing } from "@/data/writing";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
@@ -10,7 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/projects",
     "/services",
     "/experience",
-    "/writing",
     "/contact",
   ].map((path) => ({
     url: absoluteUrl(path),
@@ -26,12 +24,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const writingRoutes = writing.map((post) => ({
-    url: absoluteUrl(`/writing/${post.slug}`),
-    lastModified: new Date(post.date),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
-
-  return [...staticRoutes, ...projectRoutes, ...writingRoutes];
+  return [...staticRoutes, ...projectRoutes];
 }

@@ -30,7 +30,6 @@ export function Footer() {
               <MagneticLink href="/projects">Work</MagneticLink>
               <MagneticLink href="/services">Services</MagneticLink>
               <MagneticLink href="/about">About</MagneticLink>
-              <MagneticLink href="/writing">Writing</MagneticLink>
               <MagneticLink href="/contact">Contact</MagneticLink>
             </div>
           </div>

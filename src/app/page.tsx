@@ -4,17 +4,14 @@ import { Capabilities } from "@/components/home/capabilities";
 import { SelectedWork } from "@/components/projects/selected-work";
 import { ServicesPreview } from "@/components/services/services-preview";
 import { ProcessTimeline } from "@/components/home/process-timeline";
-import { WritingPreview } from "@/components/writing/writing-preview";
 import { ContactCTA } from "@/components/contact/contact-cta";
 import { getFeaturedProjects } from "@/data/projects";
 import { services } from "@/data/services";
 import { processSteps } from "@/data/process";
-import { getFeaturedWriting } from "@/data/writing";
 import { getPublishedTestimonials } from "@/data/testimonials";
 
 export default function HomePage() {
   const featuredProjects = getFeaturedProjects();
-  const featuredWriting = getFeaturedWriting().slice(0, 3);
   const testimonials = getPublishedTestimonials();
 
   return (
@@ -25,7 +22,6 @@ export default function HomePage() {
       <SelectedWork projects={featuredProjects} />
       <ServicesPreview services={services} limit={4} />
       <ProcessTimeline steps={processSteps} />
-      <WritingPreview posts={featuredWriting} />
       {testimonials.length > 0 ? null : null}
       <ContactCTA />
     </>

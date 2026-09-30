@@ -17,23 +17,11 @@ export function ServicesPreview({
   return (
     <section id="services" className="border-b border-border py-[var(--section-pad)]">
       <Container>
-        <div className="mb-12 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between">
-          <SectionHeading
-            className="mb-0"
-            eyebrow="What I Build"
-            title="What I build"
-            description="From RAG systems and agents to APIs, deployment, and consulting."
-          />
-          {limit ? (
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted transition-colors hover:text-accent"
-            >
-              All services
-              <ArrowUpRight size={14} />
-            </Link>
-          ) : null}
-        </div>
+        <SectionHeading
+          eyebrow="What I Build"
+          title="What I build"
+          description="From RAG systems and agents to APIs, deployment, and consulting."
+        />
 
         <div className="divide-y divide-border border-y border-border">
           {items.map((service, index) => (
@@ -63,6 +51,18 @@ export function ServicesPreview({
             </FadeIn>
           ))}
         </div>
+
+        {limit ? (
+          <div className="mt-10 flex justify-end">
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted transition-colors hover:text-accent"
+            >
+              View all services
+              <ArrowUpRight size={14} />
+            </Link>
+          </div>
+        ) : null}
       </Container>
     </section>
   );

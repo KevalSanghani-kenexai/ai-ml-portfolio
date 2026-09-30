@@ -37,7 +37,6 @@ All portfolio content is data-driven:
 - `src/data/projects.ts` — projects & case studies (**edit this to add projects**)
 - `src/data/services.ts` — services
 - `src/data/experience.ts` — experience timeline
-- `src/data/writing.ts` — writing / insights
 - `src/data/skills.ts` — capabilities
 - `src/lib/constants.ts` — name, links, availability, site config
 

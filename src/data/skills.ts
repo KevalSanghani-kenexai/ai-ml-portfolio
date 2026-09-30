@@ -4,7 +4,7 @@ import type { SkillCategory } from "@/types";
 export const skillCategories: SkillCategory[] = [
   {
     id: "ai-ml",
-    title: "AI / ML",
+    title: "AI & ML",
     items: [
       "Machine Learning",
       "Deep Learning",
@@ -20,7 +20,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     id: "llm-systems",
-    title: "LLM Systems",
+    title: "LLMs & Agents",
     items: [
       "LLM APIs",
       "RAG",
@@ -38,7 +38,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     id: "engineering",
-    title: "Engineering",
+    title: "Software & Data",
     items: [
       "Python",
       "SQL",
@@ -57,7 +57,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     id: "cloud-mlops",
-    title: "Cloud / MLOps",
+    title: "Cloud & MLOps",
     items: [
       "Azure",
       "AWS",
